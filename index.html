@@ -280,7 +280,7 @@
        ===================================================================== */
     .story-dots {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 6px;
       margin: 8px 0 6px;
     }
@@ -313,14 +313,14 @@
 
     .deck-track {
       display: flex;
-      width: 400%;
+      width: 500%;
       height: 100%;
       transition: transform 0.45s var(--ease-out);
       will-change: transform;
     }
 
     .slide {
-      width: 25%;
+      width: 20%;
       height: 100%;
       padding: 14px 12px;
       background: var(--glass);
@@ -683,7 +683,7 @@
     /* Bottom App Tab Bar */
     .bottom-nav {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 6px;
       margin-top: 8px;
       z-index: 25;
@@ -802,6 +802,29 @@
       opacity: 1;
       transform: translateX(-50%) translateY(0);
     }
+
+    .hero20{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center}
+    .big20{font-family:'Cormorant Garamond',serif;font-size:clamp(7rem,38vw,10.5rem);font-weight:700;line-height:.9;
+      background:linear-gradient(135deg,#fff 10%,var(--pink) 55%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      filter:drop-shadow(0 0 22px rgba(255,46,136,.55));cursor:pointer;animation:float20 3.6s ease-in-out infinite;transition:transform .2s var(--ease-spring)}
+    .big20:active{transform:scale(.93)}
+    @keyframes float20{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    .hero-sub{font-family:'Alex Brush',cursive;font-size:1.9rem;color:var(--pink-soft)}
+    .hero-date{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.14em;color:var(--gold)}
+    .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%;max-width:290px;margin-top:14px}
+    .stat{padding:10px 6px;border-radius:16px;background:rgba(255,46,136,.08);border:1px solid var(--border)}
+    .stat-n{font-family:'JetBrains Mono',monospace;font-size:1.15rem;font-weight:700;color:var(--text)}
+    .stat-l{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+    @media (prefers-reduced-motion:reduce){.big20{animation:none}}
+
+    .scratch-wrap{position:relative;width:min(290px,80vw);height:min(150px,22dvh);margin:auto;border-radius:20px;overflow:hidden;border:1px solid var(--border-gold)}
+    .scratch-under{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:10px;text-align:center;background:linear-gradient(135deg,rgba(255,46,136,.25),rgba(255,209,102,.25))}
+    .scratch-emoji{font-size:1.8rem}
+    .scratch-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--gold)}
+    .scratch-text{font-size:.78rem;color:var(--text);line-height:1.35}
+    #scratchCanvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair;transition:opacity .6s}
+    .reason-box{text-align:center;display:flex;flex-direction:column;gap:10px;align-items:center}
+    .reason-text{min-height:3.2em;font-size:.9rem;line-height:1.45;color:var(--text);padding:0 8px}
   </style>
 </head>
 <body>
@@ -855,6 +878,7 @@
       <div class="s-dot" data-idx="1"><div class="s-dot-fill"></div></div>
       <div class="s-dot" data-idx="2"><div class="s-dot-fill"></div></div>
       <div class="s-dot" data-idx="3"><div class="s-dot-fill"></div></div>
+      <div class="s-dot" data-idx="4"><div class="s-dot-fill"></div></div>
     </div>
 
     <!-- 4-Card Swipeable Viewport -->
@@ -868,31 +892,19 @@
             <h2 class="slide-title">Happy 20th, Bhumika</h2>
           </div>
 
-          <div class="heart-stage">
-            <svg class="heart-svg-ring" viewBox="0 0 100 94" fill="none" aria-hidden="true">
-              <path d="M50 89 C50 89 7 62 7 30 C7 14 19 5 33 5 C42 5 48 11 50 17 C52 11 58 5 67 5 C81 5 93 14 93 30 C93 62 50 89 50 89 Z"
-                    stroke="url(#heartFrameGrad)" stroke-width="1.8" fill="rgba(255, 46, 136, 0.06)" />
-              <defs>
-                <linearGradient id="heartFrameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#ff2e88" />
-                  <stop offset="50%" stop-color="#ffd166" />
-                  <stop offset="100%" stop-color="#ff8ec0" />
-                </linearGradient>
-              </defs>
-            </svg>
-
-            <div class="orbit-thumb orbit-tl active-pick" data-pidx="0" title="Frame 1"></div>
-            <div class="orbit-thumb orbit-tr" data-pidx="1" title="Frame 2"></div>
-            <div class="orbit-thumb orbit-bl" data-pidx="2" title="Frame 3"></div>
-            <div class="orbit-thumb orbit-br" data-pidx="3" title="Frame 4"></div>
-
-            <div class="center-hero-frame" id="centerHeroFrame" title="Tap for fullscreen">
-              <img id="heroFrameImg" alt="Bhumika Rawat" />
-              <div class="hero-frame-tag" id="heroFrameTag">The Prologue • 2006</div>
+          <div class="hero20">
+            <div class="big20" id="big20">20</div>
+            <div class="hero-sub">years of Bhumika Rawat</div>
+            <div class="hero-date">20 · 11 · 2006 → 20 · 11 · 2026</div>
+            <div class="stat-grid">
+              <div class="stat"><div class="stat-n" id="stDays">0</div><div class="stat-l">days</div></div>
+              <div class="stat"><div class="stat-n" id="stWeeks">0</div><div class="stat-l">weeks</div></div>
+              <div class="stat"><div class="stat-n" id="stMonths">0</div><div class="stat-l">months</div></div>
+              <div class="stat"><div class="stat-n" id="stHours">0</div><div class="stat-l">hours</div></div>
             </div>
           </div>
 
-          <div class="slide-hint">Tap corner circles to swap • Tap center to zoom • Swipe →</div>
+          <div class="slide-hint">Tap the 20 for a surprise • Swipe →</div>
         </section>
 
         <!-- SLIDE 1: 4 UNIQUE PHOTO CARDS (NO REPEATS) -->
@@ -941,7 +953,27 @@
           </div>
         </section>
 
-        <!-- SLIDE 3: NARAYAN'S LETTER -->
+        <!-- SLIDE 3: SURPRISE (scratch card + reasons) -->
+        <section class="slide">
+          <div class="slide-head">
+            <div class="slide-kicker">JUST FOR YOU</div>
+            <h2 class="slide-title">A Little Surprise</h2>
+          </div>
+          <div class="scratch-wrap" id="scratchWrap">
+            <div class="scratch-under">
+              <div class="scratch-emoji">🎁</div>
+              <div class="scratch-title">Birthday Coupon</div>
+              <div class="scratch-text">One treat on me — your pick of place &amp; dessert 🍰</div>
+            </div>
+            <canvas id="scratchCanvas"></canvas>
+          </div>
+          <div class="reason-box">
+            <div class="reason-text" id="reasonText">Tap below to see why you’re awesome ✨</div>
+            <button type="button" class="action-pill" id="reasonBtn">💖 Why you’re awesome</button>
+          </div>
+        </section>
+
+        <!-- SLIDE 4: NARAYAN'S LETTER -->
         <section class="slide">
           <div class="slide-head">
             <div class="slide-kicker">SEALED FOR 20.11.2026</div>
@@ -973,7 +1005,8 @@
       <button type="button" class="nav-tab active" data-tab="0"><span>💖</span><span>Heart</span></button>
       <button type="button" class="nav-tab" data-tab="1"><span>📸</span><span>Photos</span></button>
       <button type="button" class="nav-tab" data-tab="2"><span>🎂</span><span>Wish</span></button>
-      <button type="button" class="nav-tab" data-tab="3"><span>💌</span><span>Note</span></button>
+      <button type="button" class="nav-tab" data-tab="3"><span>🎁</span><span>Surprise</span></button>
+      <button type="button" class="nav-tab" data-tab="4"><span>💌</span><span>Note</span></button>
     </nav>
   </div>
 
@@ -1070,7 +1103,7 @@
     });
 
     window.addEventListener('pointerdown', (e) => {
-      if (e.target.closest('button, .orbit-thumb, .center-hero-frame, .mem-card, .scanner-wrap, .letter-scroll')) return;
+      if (e.target.closest('button, .big20, .mem-card, .scanner-wrap, .letter-scroll')) return;
       burstHearts(e.clientX, e.clientY, 20);
     }, { passive: true });
 
@@ -1190,41 +1223,20 @@
     /*************************************************************************
      * 4. SLIDE 0 SHOWCASE & SLIDE 1 UNIQUE PHOTO STACK (NO REPEATS)
      *************************************************************************/
-    const orbitThumbs = document.querySelectorAll('.orbit-thumb');
-    const centerHeroFrame = document.getElementById('centerHeroFrame');
-    const heroFrameImg = document.getElementById('heroFrameImg');
-    const heroFrameTag = document.getElementById('heroFrameTag');
-    let selectedPhotoIdx = 0;
-
-    function syncHeroPhoto(idx) {
-      selectedPhotoIdx = (idx + PHOTOS.length) % PHOTOS.length;
-      const item = PHOTOS[selectedPhotoIdx];
-      heroFrameImg.src = item.dataUrl;
-      heroFrameImg.alt = item.caption;
-      heroFrameImg.style.objectPosition = item.objectPosition || 'center center';
-      heroFrameTag.textContent = item.caption;
-      orbitThumbs.forEach((el, i) => el.classList.toggle('active-pick', i === selectedPhotoIdx));
+    const big20 = document.getElementById('big20');
+    const stat = (id, v) => { document.getElementById(id).textContent = v.toLocaleString('en-IN'); };
+    function tickStats() {
+      const ms = Math.max(0, Math.min(new Date(), new Date(2026, 10, 20)) - new Date(2006, 10, 20));
+      stat('stDays', Math.floor(ms / 864e5));
+      stat('stWeeks', Math.floor(ms / 6048e5));
+      stat('stMonths', 240);
+      stat('stHours', Math.floor(ms / 36e5));
     }
-
-    orbitThumbs.forEach((thumb, idx) => {
-      const item = PHOTOS[idx % PHOTOS.length];
-      const img = document.createElement('img');
-      img.src = item.dataUrl;
-      img.alt = item.caption;
-      img.style.objectPosition = item.objectPosition || 'center center';
-      thumb.appendChild(img);
-
-      thumb.addEventListener('click', () => {
-        if (navigator.vibrate) navigator.vibrate(12);
-        syncHeroPhoto(idx);
-        burstHearts(W / 2, H * 0.42, 24);
-      });
-    });
-    syncHeroPhoto(0);
-
-    centerHeroFrame.addEventListener('click', () => {
+    tickStats(); setInterval(tickStats, 60000);
+    big20.addEventListener('click', () => {
       if (navigator.vibrate) navigator.vibrate(15);
-      openLightbox(PHOTOS[selectedPhotoIdx]);
+      burstHearts(W / 2, H * 0.4, 60);
+      showToast('✨ 20 looks iconic on you!');
     });
 
     // Slide 1: Deck of 4 distinct photo cards without duplicate layering
@@ -1318,8 +1330,8 @@
     let activeSlide = 0;
 
     function goToSlide(idx) {
-      activeSlide = Math.max(0, Math.min(3, idx));
-      deckTrack.style.transform = `translateX(-${activeSlide * 25}%)`;
+      activeSlide = Math.max(0, Math.min(4, idx));
+      deckTrack.style.transform = `translateX(-${activeSlide * 20}%)`;
       navTabs.forEach((t, i) => t.classList.toggle('active', i === activeSlide));
       sDots.forEach((d, i) => {
         d.classList.toggle('active', i === activeSlide);
@@ -1351,6 +1363,12 @@
         else goToSlide(activeSlide - 1);
       }
     }, { passive: true });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') goToSlide(activeSlide + 1);
+      if (e.key === 'ArrowLeft') goToSlide(activeSlide - 1);
+      if (e.key === 'Escape') document.getElementById('lbClose').click();
+    });
 
     // Lightbox
     const lightbox = document.getElementById('lightbox');
@@ -1402,6 +1420,64 @@
     }
     setInterval(tickClock, 1000);
     tickClock();
+
+    // Scratch card
+    (function () {
+      const c = document.getElementById('scratchCanvas'), wrap = document.getElementById('scratchWrap');
+      const g = c.getContext('2d'); let drawing = false, revealed = false, ready = false;
+      function paint() {
+        const r = wrap.getBoundingClientRect(); if (!r.width) return;
+        c.width = r.width; c.height = r.height;
+        const gr = g.createLinearGradient(0, 0, c.width, c.height);
+        gr.addColorStop(0, '#ffd166'); gr.addColorStop(.5, '#fff1b8'); gr.addColorStop(1, '#ff8ec0');
+        g.globalCompositeOperation = 'source-over'; g.fillStyle = gr; g.fillRect(0, 0, c.width, c.height);
+        g.fillStyle = 'rgba(90,20,60,.75)'; g.font = '700 15px "Plus Jakarta Sans",sans-serif'; g.textAlign = 'center';
+        g.fillText('✨ SCRATCH HERE ✨', c.width / 2, c.height / 2 + 5); ready = true;
+      }
+      function scratch(e) {
+        if (!drawing || revealed || !ready) return;
+        const r = c.getBoundingClientRect();
+        g.globalCompositeOperation = 'destination-out'; g.beginPath();
+        g.arc(e.clientX - r.left, e.clientY - r.top, 20, 0, Math.PI * 2); g.fill();
+      }
+      function check() {
+        if (revealed || !ready) return;
+        const d = g.getImageData(0, 0, c.width, c.height).data; let t = 0;
+        for (let i = 3; i < d.length; i += 40) if (d[i] === 0) t++;
+        if (t / (d.length / 40) > 0.45) {
+          revealed = true; c.style.opacity = 0; c.style.pointerEvents = 'none';
+          if (navigator.vibrate) navigator.vibrate([30, 30, 60]);
+          burstHearts(W / 2, H * 0.4, 70); showToast('🎁 You found your gift!');
+        }
+      }
+      c.addEventListener('pointerdown', (e) => { drawing = true; c.setPointerCapture(e.pointerId); scratch(e); });
+      c.addEventListener('pointermove', scratch);
+      const end = () => { drawing = false; check(); };
+      c.addEventListener('pointerup', end); c.addEventListener('pointercancel', end);
+      window.addEventListener('resize', () => { if (!revealed) paint(); });
+      setTimeout(paint, 400); document.getElementById('appShell').addEventListener('transitionend', paint);
+      document.querySelectorAll('.nav-tab,.s-dot').forEach(b => b.addEventListener('click', () => setTimeout(() => { if (!revealed && !ready) paint(); }, 500)));
+    })();
+
+    // Reasons
+    const reasons = ['You’re easy to talk to — conversations just flow.', 'Your laugh makes any day better.', 'You’re genuinely kind, even when no one’s watching.', 'You make ordinary moments feel special.', 'You’re braver than you think.'];
+    let rIdx = -1;
+    document.getElementById('reasonBtn').addEventListener('click', () => {
+      rIdx = (rIdx + 1) % reasons.length;
+      document.getElementById('reasonText').textContent = reasons[rIdx];
+      if (navigator.vibrate) navigator.vibrate(12); burstHearts(W / 2, H * 0.62, 22);
+    });
+
+    // Midnight auto-celebration
+    (function () {
+      const t = new Date(2026, 10, 20).getTime(), now = Date.now(); let fired = false;
+      function go() {
+        if (fired) return; fired = true;
+        [0, 300, 600, 900].forEach((d, i) => setTimeout(() => burstHearts(W * (.2 + i * .2), H * (.35 + (i % 2) * .15), 70), d));
+        showToast('🎉 It’s officially your day, Bhumika!');
+      }
+      if (now < t) setTimeout(go, t - now);
+    })();
 
     // Toast
     const toast = document.getElementById('toast');
